@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MagicStomp</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="buttons.css">
+</head>
+<body>
+<main>
+    <div class="board">
+        <div class="colum">
+            <div class="pedal-container">
+                <p>TAP</p>
+                <button>
+                    <div id="B1L1" class="led"></div>
+                    <div id="B1L2" class="led"></div>
+                </button>
+            </div>
+            <div class="pedal-container">
+            <p>OD1</p>
+            <button>
+                <div id="B7L1" class="led"></div>
+            </button>
+        </div>
+        </div>
+        <div class="colum">
+            <div class="pedal-container">
+                <p>DELAY</p>
+                <button>
+                    <div id="B2L1" class="led"></div>
+                    <div id="B2L2" class="led"></div>
+                    <div id="B2L3" class="led"></div>
+                </button>
+            </div>
+            <div class="pedal-container">
+                <p>CLEAN</p>
+                <button>
+                    <div id="B8L1" class="led"></div>
+                </button>
+            </div>
+        </div>
+        <div class="colum">
+            <div class="pedal-container">
+                <p>ROOM</p>
+                <button>
+                    <div id="B3L1" class="led"></div>
+                </button>
+            </div>
+            <div class="pedal-container">
+                <p>MID</p>
+                <button>
+                    <div id="B9L1" class="led"></div>
+                </button>
+            </div>
+        </div>
+        <div class="colum">
+            <div class="pedal-container">
+                <p>HALL</p>
+                <button>
+                    <div id="B4L1" class="led"></div>
+                    <div id="B4L2" class="led"></div>
+                </button>
+            </div>
+            <div class="pedal-container">
+                <p>LEAD</p>
+                <button>
+                    <div id="B10L1" class="led"></div>
+                </button>
+            </div>
+        </div>
+        <div class="colum">
+            <div class="pedal-container">
+                <p>SHIMMER</p>
+                <button>
+                    <div id="B5L1" class="led"></div>
+                    <div id="B5L2" class="led"></div>
+                </button>
+            </div>
+            <div class="pedal-container">
+                <p>LEAD+</p>
+                <button>
+                    <div id="B11L1" class="led"></div>
+                </button>
+            </div>
+        </div>
+        <div class="colum">
+            <div class="pedal-container">
+                <p>CHORUS</p>
+                <button>
+                    <div id="B6L1" class="led"></div>
+                </button>
+            </div>
+            <div class="pedal-container">
+                <p>OCTAVER</p>
+                <button>
+                    <div id="B12L1" class="led"></div>
+                </button>
+            </div>
+        </div>
+        <div class="colum volume">
+            <div class="slider-container">
+                <input type="range" min="0" max="100" value="0" class="slider">
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.querySelectorAll('button').forEach(function (button) {
+        button.addEventListener('click', function () {
+            this.classList.toggle('activo');
+        });
+    });
+</script>
+
+</body>
+</html>

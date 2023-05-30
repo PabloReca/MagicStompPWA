@@ -1,0 +1,150 @@
+.led{
+    background-color: dimgrey;
+}
+
+/* BOTÓN 1 (x2 LED)*/
+#B1L1 {
+    top: -0.4rem;
+    right: -0.8rem;
+}
+
+#B1L2 {
+    top: 0;
+    right: -0.8rem;
+}
+
+button.activo #B1L1 {
+    background-color: lawngreen;
+}
+
+button.activo #B1L2 {
+    background-color: red;
+}
+
+
+
+/* BOTÓN 2 (x3 LED)*/
+#B2L1 {
+    top: -0.1rem;
+    right: -1.6rem;
+}
+
+#B2L2 {
+    top: -0.1rem;
+    right: -1.2rem;
+}
+
+#B2L3 {
+    top: -0.1rem;
+    right: -0.8rem;
+}
+
+button.activo #B2L1 {
+    background-color: deepskyblue;
+}
+
+button.activo #B2L2 {
+    background-color: darkgrey;
+}
+
+button.activo #B2L3 {
+    background-color: red;
+}
+
+
+
+/* BOTÓN 3 (x1 LED)*/
+
+button.activo #B3L1 {
+    background-color: deepskyblue;
+}
+
+
+
+/* BOTÓN 4 (x2 LED)*/
+
+#B4L1 {
+    top: -0.1rem;
+    right: -0.8rem;
+}
+
+#B4L2 {
+    top: -0.1rem;
+    right: -1.2rem;
+}
+
+button.activo #B4L1 {
+    background-color: deepskyblue;
+}
+
+button.activo #B4L2 {
+    background-color: red;
+}
+
+
+
+/* BOTÓN 5 (x2 LED)*/
+
+#B5L1 {
+    top: -0.1rem;
+    right: -0.8rem;
+}
+
+#B5L2 {
+    top: -0.1rem;
+    right: -1.2rem;
+}
+
+button.activo #B5L1 {
+    background-color: deepskyblue;
+}
+
+button.activo #B5L2 {
+    background-color: red;
+}
+
+
+
+/* BOTÓN 5 (x1 LED)*/
+button.activo #B6L1 {
+    background-color: yellow;
+}
+
+/* BOTÓN 7 (x1 LED)*/
+button.activo #B7L1 {
+    background-color: yellow;
+}
+
+
+/* BOTÓN 8 (x1 LED)*/
+button.activo #B8L1 {
+    background-color: lawngreen;
+}
+
+
+
+/* BOTÓN 9 (x1 LED)*/
+button.activo #B9L1 {
+    background-color: lawngreen;
+}
+
+
+
+/* BOTÓN 10 (x1 LED)*/
+button.activo #B10L1 {
+    background-color: lawngreen;
+}
+
+
+
+/* BOTÓN 11 (x1 LED)*/
+button.activo #B11L1 {
+    background-color: lawngreen;
+}
+
+
+
+/* BOTÓN 12 (x1 LED)*/
+button.activo #B12L1 {
+    background-color: yellow;
+}

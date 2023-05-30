@@ -1,0 +1,119 @@
+body {
+    font-family: 'Inter', sans-serif !important;
+}
+
+button {
+    width: 4rem;
+    position: relative;
+}
+
+.led {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -0.2rem;
+    right: -0.8rem;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.board {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    border: 2px solid black;
+    transform: scale(1.5);
+}
+
+
+.colum {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+body > main > div > div > div:nth-child(1) {
+    margin-bottom: 1.4rem;
+}
+
+button {
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+}
+
+p {
+    width: 5rem;
+    background-color: white;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+   text-align: center;
+}
+
+.pedal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.slider {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 50px;  /* El nuevo valor de la altura */
+    transform: rotate(270deg);
+    transform-origin: center;
+    background: #444;  /* Fondo gris oscuro */
+    border: 1px solid #000;  /* Borde negro */
+    border-radius: 10px;  /* Bordes redondeados */
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50px;  /* Nuevo valor de la anchura */
+    height: 50px;  /* Nuevo valor de la altura */
+    background: lightgrey;  /* Color gris para el selector */
+    cursor: pointer;
+    border-radius: 10px;  /* Bordes redondeados */
+}
+
+.slider::-moz-range-thumb {
+    width: 50px;  /* Nuevo valor de la anchura */
+    height: 50px;  /* Nuevo valor de la altura */
+    background: lightgrey;  /* Color gris para el selector */
+    cursor: pointer;
+    border-radius: 10px;  /* Bordes redondeados */
+}
+
+.slider::-moz-range-track {
+    background: #444;  /* Fondo gris oscuro */
+    border: 1px solid #000;  /* Borde negro */
+    border-radius: 10px;  /* Bordes redondeados */
+}
+
+
+.slider-container {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+}
+body > main > div > div:nth-child(7){
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+body > main > div > div:nth-child(8){
+    padding-left: 0.2rem;
+}

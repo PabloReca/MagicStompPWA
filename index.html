@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>MagicStomp</title>
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/buttons.css">
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 </head>
 <body>
@@ -379,16 +377,9 @@
     </div>
 </main>
 
-<script>
-    document.querySelectorAll('button').forEach(function (button) {
-        button.addEventListener('click', function () {
-            this.classList.toggle('activo');
-        });
-    });
-</script>
-
 
 <script>
+    // Calcula el BPM basándose en el intervalo de los taps
     function calculateBPM(taps) {
         if (taps.length < 2) {
             return 0;
@@ -401,71 +392,75 @@
 
         let avgInterval = intervals.reduce((a, b) => a + b) / intervals.length;
 
-        // Convertir el intervalo promedio a BPM (minuto es 60000ms)
+        // Convierte el intervalo promedio en BPM (1 minuto es 60000ms)
         let bpm = 60000 / avgInterval;
 
         return Math.round(bpm);
     }
 
-
-    document.querySelectorAll('button').forEach(function (button) {
+    // Añade el evento de clic a todos los botones para cambiar su clase
+    document.querySelectorAll('button').forEach((button) => {
         button.addEventListener('click', function () {
             this.classList.toggle('activo');
         });
     });
 
     let button = document.getElementById('tapButton');
-    let led = document.getElementById('B1L2');
-    let taps = [];
-    let ledInterval = null;
-
-    button.addEventListener('click', () => {
-        taps.push(new Date().getTime());
-
-        if (taps.length > 3) {
-            taps.shift();
-        }
-
-        let bpm = calculateBPM(taps);
-
-        if (ledInterval) {
-            clearInterval(ledInterval);
-            led.style.backgroundColor = "dimgrey"; // color original del led cuando está apagado
-        }
-
-        if (bpm > 0) {
-            let flashRate = 60 / bpm * 1000;
-            ledInterval = setInterval(() => {
-                // en lugar de agregar y quitar la clase 'activo', cambiamos el color de fondo del LED directamente
-                led.style.backgroundColor = led.style.backgroundColor == "dimgrey" ? "red" : "dimgrey";
-            }, flashRate);
-        }
-    });
-</script>
-
-
-<script>
-    let mouseDownTime = null;
     let ledGreen = document.getElementById('B1L1');
     let ledRed = document.getElementById('B1L2');
+    let taps = [];
+    let ledInterval = null;
+    let ledGreenOn = false; // Nueva variable para rastrear el estado del LED verde
+
+    button.addEventListener('click', () => {
+        if (!mouseDownTime) {
+            taps.push(new Date().getTime());
+
+            if (taps.length > 3) {
+                taps.shift();
+            }
+
+            let bpm = calculateBPM(taps);
+
+            if (ledInterval) {
+                clearInterval(ledInterval);
+                ledRed.style.backgroundColor = "dimgrey"; // color original del led cuando está apagado
+            }
+
+            if (bpm > 0 && !ledGreenOn) { // Solo parpadea si el LED verde no está encendido
+                let flashRate = 60 / bpm * 1000;
+                ledInterval = setInterval(() => {
+                    ledRed.style.backgroundColor = ledRed.style.backgroundColor == "dimgrey" ? "red" : "dimgrey";
+                }, flashRate);
+            }
+        }
+    });
+
+    let mouseDownTime = null;
 
     button.addEventListener('mousedown', () => {
         mouseDownTime = new Date().getTime();
+        greenLedTimer = setTimeout(() => {
+            if (ledInterval) {
+                clearInterval(ledInterval);
+                ledRed.style.backgroundColor = "dimgrey";
+            }
+            ledGreen.style.backgroundColor = "lawngreen";
+            ledGreenOn = true; // Actualiza el estado del LED verde a encendido
+        }, 2000);
     });
 
     button.addEventListener('mouseup', () => {
         let mouseUpTime = new Date().getTime();
         let elapsed = mouseUpTime - mouseDownTime;
 
-        if (elapsed > 2000) {
-            if (ledInterval) {
-                clearInterval(ledInterval);
-                ledRed.style.backgroundColor = "dimgrey"; // reset the red LED color
-            }
-            ledGreen.style.backgroundColor = "lawngreen"; // turn on the green LED
-        } else {
-            ledGreen.style.backgroundColor = "dimgrey"; // reset the green LED color if button isn't held long enough
+        if (elapsed < 2000) {
+            clearTimeout(greenLedTimer);
+            ledGreen.style.backgroundColor = "dimgrey";
+            ledGreenOn = false; // Actualiza el estado del LED verde a apagado
         }
+
+        mouseDownTime = null;
     });
 </script>
 
